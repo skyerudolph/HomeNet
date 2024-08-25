@@ -3,14 +3,12 @@ import '../index.css';
 interface TabProps {
     icon: JSX.Element;
     color: string;
-    active: boolean;
-    panel: () => JSX.Element;
-}
+    onClick: () => void;
+};
 
-const Tab = ({ icon, color, active, panel }: TabProps) => {
-    return(
-        <button
-            onClick={panel}
+const TabButton = ({ icon, color, onClick }: TabProps) => {
+    return <button
+            onClick={onClick}
             style={{
                 display: 'flex',
                 backgroundColor: color,
@@ -21,9 +19,8 @@ const Tab = ({ icon, color, active, panel }: TabProps) => {
                 borderRadius: 0,
             }
         }>
-            {icon}
-        </button>
-    );
+        {icon}
+    </button>;
 };
 
-export default Tab;
+export default TabButton;

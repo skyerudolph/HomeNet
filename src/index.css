@@ -7,9 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   justify-content: center;
   background-color: #ffddff;
-  -webkit-transition: background-color 500ms linear;
-  -ms-transition: background-color 500ms linear;
-  transition: background-color 500ms linear;
 }
 
 code {
