@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/HomeNet/static/css/main.e16874e7.css",
-    "main.js": "/HomeNet/static/js/main.ea125175.js",
+    "main.js": "/HomeNet/static/js/main.debdd226.js",
     "static/js/453.e71872a1.chunk.js": "/HomeNet/static/js/453.e71872a1.chunk.js",
     "index.html": "/HomeNet/index.html",
     "main.e16874e7.css.map": "/HomeNet/static/css/main.e16874e7.css.map",
-    "main.ea125175.js.map": "/HomeNet/static/js/main.ea125175.js.map",
+    "main.debdd226.js.map": "/HomeNet/static/js/main.debdd226.js.map",
     "453.e71872a1.chunk.js.map": "/HomeNet/static/js/453.e71872a1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e16874e7.css",
-    "static/js/main.ea125175.js"
+    "static/js/main.debdd226.js"
   ]
 }
