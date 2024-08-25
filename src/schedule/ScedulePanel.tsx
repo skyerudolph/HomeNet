@@ -23,8 +23,10 @@ const GetPriority = (item: ScheduleItem) => {
 }
 
 const SchedulePanel = () => {
-    return <div>
-        
+    return <div 
+        style={{
+            padding: 5,
+        }}>
         {
             Schedule
                 .sort((a, b) => GetDueDate(a).getTime() - GetDueDate(b).getTime())
