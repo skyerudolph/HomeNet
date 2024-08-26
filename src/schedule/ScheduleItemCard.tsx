@@ -4,6 +4,7 @@ interface ScheduleItemProps {
     dueDate: Date;
     priority: string;
     taskName: string;
+    onClick: () => void;
 };
 
 const priorityColorMap: { [priority: string] : string } = {
@@ -12,8 +13,9 @@ const priorityColorMap: { [priority: string] : string } = {
     'high': 'red',
 }
 
-const ScheduleItemCard = ({ dueDate, priority, taskName }: ScheduleItemProps) => {
+const ScheduleItemCard = ({ dueDate, priority, taskName, onClick }: ScheduleItemProps) => {
     return <button
+        onClick={onClick}
         style={{
             backgroundColor: priorityColorMap[priority] ?? 'blue',
             borderRadius: 10,

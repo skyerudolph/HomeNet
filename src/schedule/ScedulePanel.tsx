@@ -1,36 +1,36 @@
+import { useState } from "react";
+import ScheduleItem from "./ScheduleItem";
 import ScheduleItemCard from "./ScheduleItemCard";
 import Schedule from "./TestScheduleFile.json";
 
-interface ScheduleItem {
-    lastCompleted: string,
-    interval: number,
-    taskName: string,
-};
-
-const GetDueDate = (item: ScheduleItem) => {
-    const lastDate = new Date(item.lastCompleted);
-    return new Date(lastDate.setDate(lastDate.getDate() + item.interval));
+const LoadItems = () => {
+    return Schedule.map(item => new ScheduleItem(item));
 }
 
-const GetPriority = (item: ScheduleItem) => {
-    const dueDate = GetDueDate(item);
-    const now = new Date(Date.now());
-    if(now < dueDate) return 'low';
-    const daysOverdue = (now.getTime() - dueDate.getTime()) / (1000 * 60 * 60 * 24);
-    const fractionOverdue = daysOverdue / item.interval;
-    if(fractionOverdue > .5) return 'high';
-    return 'medium';
+const SaveItems = (items: ScheduleItem[]) => {
+
 }
 
 const SchedulePanel = () => {
-    return <div 
+    const [items, setItems] = useState(LoadItems);
+
+     return <div 
         style={{
             padding: 5,
         }}>
         {
-            Schedule
-                .sort((a, b) => GetDueDate(a).getTime() - GetDueDate(b).getTime())
-                .map(item => ScheduleItemCard({ dueDate: GetDueDate(item), priority: GetPriority(item), taskName: item.taskName }))
+            items
+                .sort((a, b) => a.GetDueDate().getTime() - b.GetDueDate().getTime())
+                .map(item => ScheduleItemCard({
+                dueDate: item.GetDueDate(),
+                priority: item.GetPriority(),
+                taskName: item.taskName,
+                onClick: () => {
+                    item.lastCompleted = new Date();
+                    setItems([...items]);
+                    SaveItems(items);
+                }
+            }))
         }
     </div>;
 };
